@@ -1,0 +1,6 @@
+rootProject.name = 'broccoli'
+include 'broccoli-common'
+include 'broccoli-users'
+include 'broccoli-cart'
+include 'broccoli-forum'
+include 'broccoli-reviews'
