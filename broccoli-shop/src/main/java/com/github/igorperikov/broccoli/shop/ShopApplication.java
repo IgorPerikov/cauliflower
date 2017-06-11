@@ -1,12 +1,12 @@
-package com.github.igorperikov.broccoli.users;
+package com.github.igorperikov.broccoli.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsersApplication {
+public class ShopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UsersApplication.class, args);
+        SpringApplication.run(ShopApplication.class, args);
     }
 }

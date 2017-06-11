@@ -1,12 +1,12 @@
-package com.github.igorperikov.broccoli.cart;
+package com.github.igorperikov.broccoli.profiles;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CartApplication {
+public class ProfilesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CartApplication.class, args);
+        SpringApplication.run(ProfilesApplication.class, args);
     }
 }
