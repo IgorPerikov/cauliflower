@@ -1,4 +1,6 @@
 allprojects {
+    apply plugin: 'jacoco'
+
     group 'com.github.igorperikov'
     version '0.0.1'
 }
@@ -28,10 +30,31 @@ subprojects {
         testCompile "junit:junit:${junitVersion}"
         testCompile "org.mockito:mockito-core:${mockitoVersion}"
     }
+
+    test.useTestNG()
 }
 
 configure(subprojects.findAll { it.name != 'broccoli-common' }) {
     dependencies {
         compile project(':broccoli-common')
     }
+}
+
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled true
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+        html.enabled false
+        csv.enabled false
+    }
+}
+
+codeCoverageReport.dependsOn {
+    subprojects*.test
 }
