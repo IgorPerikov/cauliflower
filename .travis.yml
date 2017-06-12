@@ -9,3 +9,5 @@ addons:
     organization: igorperikov-github
     token:
       secure: $SONAR_TOKEN
+    github_token:
+      secure: $SONAR_BOT_TOKEN
