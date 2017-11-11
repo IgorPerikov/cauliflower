@@ -1,6 +1,2 @@
-rootProject.name = 'broccoli'
-include 'broccoli-common'
-include 'broccoli-profiles'
-include 'broccoli-shop'
-include 'broccoli-forum'
-include 'broccoli-reviews'
+rootProject.name = 'parent'
+
