@@ -2,5 +2,5 @@ rootProject.name = 'cauliflower-parent'
 include 'cauliflower-common'
 include 'cauliflower-auth'
 include 'cauliflower-notes'
-include 'cauliflower-social'
+include 'cauliflower-front'
 
