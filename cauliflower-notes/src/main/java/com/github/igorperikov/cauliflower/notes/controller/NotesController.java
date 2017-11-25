@@ -1,6 +1,6 @@
 package com.github.igorperikov.cauliflower.notes.controller;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.igorperikov.cauliflower.common.dto.ContentWrapperTO;
 import com.github.igorperikov.cauliflower.common.dto.NoteTO;
 import com.github.igorperikov.cauliflower.notes.converter.NotesConverter;
 import com.github.igorperikov.cauliflower.notes.service.NotesService;
@@ -35,10 +35,10 @@ public class NotesController {
     @PostMapping
     public Mono<NoteTO> createNote(
             @RequestHeader(name = "X-User-Id") UUID userId,
-            @RequestBody @Valid ContentWrapper contentWrapper
+            @RequestBody @Valid ContentWrapperTO contentWrapperTO
     ) {
         return notesService
-                .createNote(userId, contentWrapper.content)
+                .createNote(userId, contentWrapperTO.getContent())
                 .map(notesConverter::convertFromEntity);
     }
 
@@ -51,11 +51,5 @@ public class NotesController {
             @PathVariable(name = "uuid") UUID noteId
     ) {
         return notesService.deleteNote(userId, noteId);
-    }
-
-    private static class ContentWrapper {
-        @JsonProperty("content")
-        @NotNull
-        String content;
     }
 }
