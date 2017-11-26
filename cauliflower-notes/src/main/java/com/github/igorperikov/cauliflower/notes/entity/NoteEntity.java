@@ -21,4 +21,3 @@ public class NoteEntity {
     private final UUID noteId;
     private final String content;
 }
-

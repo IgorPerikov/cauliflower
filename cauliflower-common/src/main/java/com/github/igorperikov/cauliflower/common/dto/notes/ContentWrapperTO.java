@@ -1,4 +1,4 @@
-package com.github.igorperikov.cauliflower.common.dto;
+package com.github.igorperikov.cauliflower.common.dto.notes;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

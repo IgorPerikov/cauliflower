@@ -1,10 +1,8 @@
 package com.github.igorperikov.cauliflower.notes.converter;
 
-import com.github.igorperikov.cauliflower.common.dto.NoteTO;
+import com.github.igorperikov.cauliflower.common.dto.notes.NoteTO;
 import com.github.igorperikov.cauliflower.notes.entity.NoteEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 public class NotesConverter {

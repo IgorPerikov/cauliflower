@@ -1,7 +1,7 @@
 package com.github.igorperikov.cauliflower.notes.controller;
 
-import com.github.igorperikov.cauliflower.common.dto.ContentWrapperTO;
-import com.github.igorperikov.cauliflower.common.dto.NoteTO;
+import com.github.igorperikov.cauliflower.common.dto.notes.ContentWrapperTO;
+import com.github.igorperikov.cauliflower.common.dto.notes.NoteTO;
 import com.github.igorperikov.cauliflower.notes.converter.NotesConverter;
 import com.github.igorperikov.cauliflower.notes.service.NotesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @RestController

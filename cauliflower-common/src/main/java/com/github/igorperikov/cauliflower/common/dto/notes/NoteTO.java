@@ -1,4 +1,4 @@
-package com.github.igorperikov.cauliflower.common.dto;
+package com.github.igorperikov.cauliflower.common.dto.notes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

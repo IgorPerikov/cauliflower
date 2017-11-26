@@ -19,7 +19,6 @@ public class AuthRepository {
     }
 
     public Mono<AuthEntity> findByLoginAndPassword(String login, String hashedPassword) {
-        System.out.println("repo called");
         return cassandraTemplate.selectOne(
                 Query.query(
                         Criteria.where("login").is(login),
