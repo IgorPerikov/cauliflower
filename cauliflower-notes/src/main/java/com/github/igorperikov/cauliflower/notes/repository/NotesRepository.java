@@ -24,7 +24,8 @@ public class NotesRepository {
     public Flux<NoteEntity> getAll(UUID userId) {
         return cassandraTemplate.select(
                 Query.query(Criteria.where("user_id").is(userId)),
-                NoteEntity.class);
+                NoteEntity.class
+        );
     }
 
     public Mono<NoteEntity> createNote(NoteEntity note) {

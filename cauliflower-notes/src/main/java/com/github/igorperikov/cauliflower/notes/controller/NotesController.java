@@ -25,7 +25,7 @@ public class NotesController {
     }
 
     @GetMapping
-    public Flux<NoteTO> getNotesPage(@RequestHeader(name = "X-User-Id") UUID userId) {
+    public Flux<NoteTO> getNotes(@RequestHeader(name = "X-User-Id") UUID userId) {
         return notesService
                 .getPage(userId)
                 .map(notesConverter::convertFromEntity);

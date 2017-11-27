@@ -28,13 +28,13 @@ public class AuthUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-        AuthForm content = new AuthForm();
+        AuthFormImpl content = new AuthFormImpl();
 
-        Button loginButton = content.loginButton;
-        Button registerButton = content.registerButton;
+        Button loginButton = content.getLoginButton();
+        Button registerButton = content.getRegisterButton();
 
-        TextField loginInput = content.loginInput;
-        TextField passwordInput = content.passwordInput;
+        TextField loginInput = content.getLoginInput();
+        TextField passwordInput = content.getPasswordInput();
 
         UUID id = (UUID) VaadinSession.getCurrent().getAttribute("userId");
         if (id != null) {
@@ -54,7 +54,7 @@ public class AuthUI extends UI {
                 }
             } catch (Exception e) {
                 log.error("", e);
-                Notification.show("Service is having problems, try again later!", Notification.Type.WARNING_MESSAGE);
+                Notification.show(e.getMessage(), Notification.Type.WARNING_MESSAGE);
             }
         });
 
@@ -71,15 +71,15 @@ public class AuthUI extends UI {
                 }
             } catch (Exception e) {
                 log.error("", e);
-                Notification.show("Service is having problems, try again later!", Notification.Type.WARNING_MESSAGE);
+                Notification.show(e.getMessage(), Notification.Type.WARNING_MESSAGE);
             }
         });
 
         setContent(content);
     }
 
-    private void cleanFields(AuthForm content) {
-        content.loginInput.setValue("");
-        content.passwordInput.setValue("");
+    private void cleanFields(AuthFormImpl content) {
+        content.getLoginInput().setValue("");
+        content.getPasswordInput().setValue("");
     }
 }
