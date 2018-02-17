@@ -1,3 +1,4 @@
+#!/bin/bash
 cd cauliflower-notes
 ./build.sh
 cd ..
