@@ -1,4 +1,4 @@
-CREATE TABLE notes.user_notes (
+CREATE TABLE IF NOT EXISTS notes.user_notes (
     user_id uuid,
     note_id timeuuid,
     content text,

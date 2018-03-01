@@ -1,4 +1,4 @@
-CREATE TABLE notes.auth_info (
+CREATE TABLE IF NOT EXISTS notes.auth_info (
     login text,
     hashed_password text,
     user_id uuid,
