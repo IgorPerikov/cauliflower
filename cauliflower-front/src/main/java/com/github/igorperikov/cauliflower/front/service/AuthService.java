@@ -19,9 +19,6 @@ public class AuthService {
     @Value("${auth.application.address}")
     private String authUrl;
 
-    @Value("${auth.application.port}")
-    private int authPort;
-
     @Autowired
     public AuthService(OkHttpClient httpClient, ObjectMapper objectMapper) {
         this.httpClient = httpClient;
@@ -33,7 +30,7 @@ public class AuthService {
         String content = objectMapper.writeValueAsString(new Credentials(login, unhashedPassword));
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), content);
         Request request = new Request.Builder()
-                .url("http://" + authUrl + ":" + authPort + "/authorize")
+                .url("http://" + authUrl + "/authorize")
                 .post(requestBody)
                 .build();
         Response response = httpClient.newCall(request).execute();
@@ -49,7 +46,7 @@ public class AuthService {
         String content = objectMapper.writeValueAsString(new Credentials(login, unhashedPassword));
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), content);
         Request request = new Request.Builder()
-                .url("http://" + authUrl + ":" + authPort + "/register")
+                .url("http://" + authUrl + "/register")
                 .post(requestBody)
                 .build();
         Response response = httpClient.newCall(request).execute();

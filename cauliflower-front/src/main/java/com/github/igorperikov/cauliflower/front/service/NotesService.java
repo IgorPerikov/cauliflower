@@ -21,9 +21,6 @@ public class NotesService {
     @Value("${notes.application.address}")
     private String notesUrl;
 
-    @Value("${notes.application.port}")
-    private int notesPort;
-
     @Autowired
     public NotesService(OkHttpClient httpClient, ObjectMapper objectMapper) {
         this.httpClient = httpClient;
@@ -32,7 +29,7 @@ public class NotesService {
 
     public List<NoteTO> getNotes(UUID userId) throws IOException {
         Request request = new Request.Builder()
-                .url("http://" + notesUrl + ":" + notesPort + "/notes")
+                .url("http://" + notesUrl + "/notes")
                 .header("X-User-Id", userId.toString())
                 .get()
                 .build();
@@ -46,7 +43,7 @@ public class NotesService {
 
     public void deleteNote(UUID userId, UUID noteId) throws IOException {
         Request request = new Request.Builder()
-                .url("http://" + notesUrl + ":" + notesPort + "/notes/" + noteId.toString())
+                .url("http://" + notesUrl + "/notes/" + noteId.toString())
                 .header("X-User-Id", userId.toString())
                 .delete()
                 .build();
@@ -60,7 +57,7 @@ public class NotesService {
         String body = objectMapper.writeValueAsString(new ContentWrapperTO(content));
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), body);
         Request request = new Request.Builder()
-                .url("http://" + notesUrl + ":" + notesPort + "/notes")
+                .url("http://" + notesUrl + "/notes")
                 .header("X-User-Id", userId.toString())
                 .post(requestBody)
                 .build();
